@@ -57,9 +57,13 @@ class ViewController: UIViewController {
         // Set up background
         imageBackground.image = UIImage(named: "happy.jpg")
         
+        // To notify the changeLyrics function when textView value changed
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChangedLyricstoArray), name: UITextView.textDidChangeNotification, object: nil)
+        
         // Check first music fave status
         if arrOfMusic[0].isFavorite! {
             favMusicBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            
         }
         
         // To blur background (put this on your ViewController's viewDidLoad())
@@ -140,6 +144,12 @@ class ViewController: UIViewController {
         } else {
             favMusicBtn.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+        
+        
+    }
+    
+    @objc func updateChangedLyricstoArray() {
+        arrOfMusic[currMusic].lyrics = lyricsTextView.text
         
     }
 
