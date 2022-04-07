@@ -140,12 +140,12 @@ class ViewController: UIViewController {
     
     func changeHeartIcon() {
         if arrOfMusic[currMusic].isFavorite! {
+
                 favMusicBtn.setImage(UIImage(systemName: "heart.circle.fill"), for: .normal)
         } else {
             favMusicBtn.setImage(UIImage(systemName: "heart.circle"), for: .normal)
         }
-        
-        
+
     }
     
     @objc func updateChangedLyricstoArray() {
